@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avionics Academy: Sisteme CNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loader-text">Încărcare Sistem Avionic...</div>
+    </div>
+
+    <!-- Background Effects -->
+    <div id="particles-js"></div>
+    <div class="energy-pulse-effect"></div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard-container" style="opacity: 0;">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <i class="fas fa-plane-departure"></i>
+                    <h2>Avionics Academy</h2>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li class="active-nav" data-section="dashboard">
+                            <a href="#dashboard">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li data-section="modules">
+                            <a href="#modules">
+                                <i class="fas fa-book-open"></i> Module de Învățare
+                            </a>
+                        </li>
+                        <li data-section="quiz">
+                            <a href="#quiz">
+                                <i class="fas fa-question-circle"></i> Evaluare (simulată)
+                            </a>
+                        </li>
+                        <li data-section="resources">
+                            <a href="#resources">
+                                <i class="fas fa-flask"></i> Resurse & Laborator
+                            </a>
+                        </li>
+                        <li data-section="innovations">
+                            <a href="#innovations">
+                                <i class="fas fa-lightbulb"></i> Inovații CNI
+                            </a>
+                        </li>
+                        <li data-section="analytics">
+                            <a href="#analytics">
+                                <i class="fas fa-chart-line"></i> Performanță
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/150/ff7b00/000000?text=Student" alt="Profil Utilizator">
+                <div class="user-info">
+                    <h3>Alexandru Popescu</h3>
+                    <p>Student Avionică An III</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <header class="dashboard-header">
+                <h1>Sisteme de Comunicații, Navigație și Identificare pentru Avionică</h1>
+                <p>Platforma ta interactivă de învățare și explorare în lumea fascinantă a avionicii moderne.</p>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="dashboard-section active-section">
+                <div class="section-title">
+                    <i class="fas fa-chart-pie"></i>
+                    <h2>Progres General</h2>
+                </div>
+                <div class="card progress-panel">
+                    <div class="progress-text">Progres Curs: <span id="overall-progress-percentage">0%</span></div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="overall-progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <p>Ai finalizat <span id="completed-modules-count">0</span> din <span id="total-modules-count">0</span> module.</p>
+                        <p>Următorul pas: <span id="next-module-hint">N/A</span></p>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-chart-bar"></i>
+                    <h2>Statistici Rapide</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-completed-modules">0</div>
+                        <div class="stat-title">Module Finalizate</div>
+                        <div class="stat-description">Total module parcurse cu succes.</div>
+                        <div class="stat-trend"><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Continuă așa!</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-quiz-avg">0%</div>
+                        <div class="stat-title">Medie Evaluări</div>
+                        <div class="stat-description">Performanța medie la quiz-uri și exerciții.</div>
+                        <div class="stat-trend"><i class="fas fa-arrow-up" style="color: var(--accent-green);"></i> Bună!</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-hours-studied">0</div>
+                        <div class="stat-title">Ore de Studiu</div>
+                        <div class="stat-description">Timpul estimat petrecut pe platformă.</div>
+                        <div class="stat-trend"><i class="fas fa-hourglass-half" style="color: var(--accent-blue);"></i> Dedicare continuă</div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-history"></i>
+                    <h2>Activitate Recentă</h2>
+                </div>
+                <div class="card recent-activity-panel">
+                    <ul id="activity-list">
+                        <li><span class="activity-date">2023-11-28:</span> Ai început modulul "Principii de Navigație Inerțială".</li>
+                        <li><span class="activity-date">2023-11-27:</span> Ai finalizat modulul "Bazele Comunicațiilor VHF/UHF".</li>
+                        <li><span class="activity-date">2023-11-26:</span> Ai revizuit secțiunea "Sisteme de Transpondere ADS-B".</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Modules Section -->
+            <section id="modules" class="dashboard-section">
+                <div class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    <h2>Module de Învățare</h2>
+                </div>
+                <div class="search-filter-container">
+                    <input type="text" id="module-search" class="form-control" placeholder="Caută module...">
+                    <select id="module-filter" class="form-control">
+                        <option value="all">Toate Modulele</option>
+                        <option value="incomplete">Neparcurse</option>
+                        <option value="in_progress">În Progres</option>
+                        <option value="completed">Finalizate</option>
+                    </select>
+                </div>
+                <div class="modules-grid" id="modules-container">
+                    <!-- Modules will be loaded here by JS -->
+                </div>
+            </section>
+
+            <!-- Quiz Section (Simulated) -->
+            <section id="quiz" class="dashboard-section">
+                <div class="section-title">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>Evaluare și Testare</h2>
+                </div>
+                <div class="card">
+                    <h3>Simulare Test de Cunoștințe</h3>
+                    <p>Această secțiune este dedicată testării cunoștințelor acumulate. Fiecare modul va avea propriile exerciții și quiz-uri de evaluare.</p>
+                    <p>Momentan, funcționalitatea de quiz este în dezvoltare. Te rugăm să revii curând pentru a-ți testa abilitățile!</p>
+                    <button class="btn btn--primary btn--lg" disabled>
+                        <i class="fas fa-laptop-code"></i> Începe Evaluarea (Curând)
+                    </button>
+                    <p class="mt-8" style="font-size: 0.9em; color: var(--color-text-secondary);">Exemple de subiecte abordate în quiz-uri: principii GNSS, standarde ARINC, funcționarea transponderelor Mode S, protocoale ACARS, etc.</p>
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources" class="dashboard-section">
+                <div class="section-title">
+                    <i class="fas fa-flask"></i>
+                    <h2>Resurse Adiționale și Laborator Virtual</h2>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-category card">
+                        <h3><i class="fas fa-file-pdf"></i> Documentație Tehnică</h3>
+                        <ul id="docs-list">
+                            <li><a href="#" class="resource-link">Manual Tehnic FAA - Avionică Generală</a></li>
+                            <li><a href="#" class="resource-link">Standarde ICAO Anexa 10 - Comunicații Aeronautice</a></li>
+                            <li><a href="#" class="resource-link">Ghid de Operare ADS-B (EASA)</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-category card">
+                        <h3><i class="fas fa-video"></i> Tutoriale Video</h3>
+                        <ul id="videos-list">
+                            <li><a href="#" class="resource-link">Principii de Funcționare ILS și CAT III</a></li>
+                            <li><a href="#" class="resource-link">Demonstrație FMS și Flight Planning</a></li>
+                            <li><a href="#" class="resource-link">Introducere în Sisteme de Management al Traficului Aerian (ATM)</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-category card">
+                        <h3><i class="fas fa-external-link-alt"></i> Link-uri Utile</h3>
+                        <ul id="links-list">
+                            <li><a href="#" class="resource-link">EASA - Agenția Europeană pentru Siguranța Aviației</a></li>
+                            <li><a href="#" class="resource-link">EUROCONTROL - Organizația pentru Siguranța Navigației Aeriene</a></li>
+                            <li><a href="#" class="resource-link">ARINC - Standarde de Comunicații Avionică</a></li>
+                            <li><a href="#" class="resource-link">NASA Aeronautics Research</a></li>
+                        </ul>
+                    </div>
+                    <!-- NEW: Academic References -->
+                    <div class="resource-category card">
+                        <h3><i class="fas fa-book"></i> Referințe Academice</h3>
+                        <ul id="citations-list">
+                            <!-- Citations will be loaded here by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Innovations Section -->
+            <section id="innovations" class="dashboard-section">
+                <div class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    <h2>Inovații și Tendințe în CNI Avionică</h2>
+                </div>
+                <div class="innovations-grid" id="innovations-container">
+                    <!-- Innovations will be loaded here by JS -->
+                </div>
+            </section>
+
+            <!-- Analytics Section (Simulated) -->
+            <section id="analytics" class="dashboard-section">
+                <div class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Analiza Performanței Tale</h2>
+                </div>
+                <div class="analytics-grid">
+                    <div class="chart-container card">
+                        <h3>Progres Module pe Domenii</h3>
+                        <canvas id="module-progress-chart"></canvas>
+                        <p style="text-align: center; color: var(--text-muted); margin-top: 1rem;">(Grafic simulat - necesită bibliotecă Chart.js)</p>
+                    </div>
+                    <div class="chart-container card">
+                        <h3>Scorul la Quiz-uri (Medie pe Tentative)</h3>
+                        <canvas id="quiz-score-chart"></canvas>
+                        <p style="text-align: center; color: var(--text-muted); margin-top: 1rem;">(Grafic simulat - necesită bibliotecă Chart.js)</p>
+                    </div>
+                </div>
+                <div class="card mt-8">
+                    <h3>Recomandări Personalizate</h3>
+                    <p>Pe baza progresului tău, îți recomandăm să te concentrezi pe modulele rămase din categoria "Identificare" și să revizuiești materialele despre "Principii de funcționare a RADAR-ului".</p>
+                    <button class="btn btn--secondary btn--lg">
+                        <i class="fas fa-magic"></i> Vezi Recomandări Detaliate
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Module Details Modal -->
+    <div id="module-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="modal-close" id="modal-close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-progress">
+                    <div class="modal-progress-info">
+                        <span>Progres: <span id="modal-progress-percentage">0%</span></span>
+                        <span>Stare: <span id="modal-progress-status"></span></span>
+                    </div>
+                    <div class="module-progress-bar-container">
+                        <div class="module-progress-bar" id="modal-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <p id="modal-description" class="modal-description"></p>
+                <div class="modal-topics">
+                    <h4>Subiecte Cheie:</h4>
+                    <ul id="modal-topics-list"></ul>
+                </div>
+                <div class="modal-trends mt-8">
+                    <h4>Tendințe Curente & Viitoare:</h4>
+                    <ul id="modal-trends-list"></ul>
+                </div>
+                <div class="modal-full-content mt-8">
+                    <h4>Conținut Detaliat:</h4>
+                    <div id="modal-research-content"></div>
+                </div>
+                <button class="btn btn--primary btn--lg mt-8 btn--full-width" id="modal-action-btn">
+                    <i class="fas fa-play-circle"></i> Începe Modulul
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- For Particles.js - typically linked from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
